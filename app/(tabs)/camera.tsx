@@ -64,7 +64,7 @@ const SimpleTabs = ({ tabs, activeTab, onChangeTab }: any) => {
           </Text>
         ))}
       </View>
-      
+
       <View style={tabStyles.tabContent}>
         {tabs[activeTab].content}
       </View>
@@ -103,9 +103,9 @@ export default function CameraScreen() {
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [micEnabled, setMicEnabled] = useState(false);
   const [fullScreen, setFullScreen] = useState(false);
-  
+
   const dimensions = useWindowDimensions();
-  
+
   const selectedRobot = mockRobots.find(robot => robot.id === selectedRobotId) || mockRobots[0];
 
   const handleTogglePatrol = () => {
@@ -121,12 +121,12 @@ export default function CameraScreen() {
   const renderRobotsList = () => (
     <ScrollView style={styles.robotsList}>
       {mockRobots.map(robot => (
-        <Card 
+        <Card
           key={robot.id}
           title={robot.name}
           subtitle={`ID: ${robot.id} • Status: ${robot.status}`}
           style={[
-            styles.robotSelectCard, 
+            styles.robotSelectCard,
             selectedRobotId === robot.id && styles.selectedRobotCard
           ]}
           onPress={() => setSelectedRobotId(robot.id)}
@@ -152,7 +152,7 @@ export default function CameraScreen() {
         onReturnHome={() => handleRobotMovement('home')}
         onTogglePatrol={handleTogglePatrol}
       />
-      
+
       <Card title="Audio Controls" style={styles.audioCard}>
         <View style={styles.audioControls}>
           <Button
@@ -162,7 +162,7 @@ export default function CameraScreen() {
           >
             {audioEnabled ? 'Mute Speaker' : 'Enable Speaker'}
           </Button>
-          
+
           <Button
             variant={micEnabled ? 'accent' : 'outline'}
             icon={micEnabled ? <Mic size={18} color="#FFFFFF" /> : <MicOff size={18} color="#FF9500" />}
@@ -171,7 +171,7 @@ export default function CameraScreen() {
             {micEnabled ? 'Mute Microphone' : 'Enable Microphone'}
           </Button>
         </View>
-        
+
         <Text style={styles.audioHelpText}>
           Enable two-way audio communication with the robot
         </Text>
@@ -202,7 +202,7 @@ export default function CameraScreen() {
           isImageRecognitionActive={true}
           detectedObjects={selectedRobot.detectedObjects}
         />
-        
+
         <Button
           variant="ghost"
           icon={<ArrowUpRight size={18} color="#FFFFFF" />}
@@ -212,7 +212,7 @@ export default function CameraScreen() {
           {fullScreen ? 'Exit Fullscreen' : 'Fullscreen'}
         </Button>
       </View>
-      
+
       {!fullScreen && (
         <SimpleTabs
           tabs={tabs}

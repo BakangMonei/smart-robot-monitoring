@@ -10,103 +10,103 @@ import { Eye, EyeOff, Route, PhoneIncoming as HomeIcon, MapPin } from 'lucide-re
 const darkMapStyle = [
   {
     "elementType": "geometry",
-    "stylers": [{"color": "#212121"}]
+    "stylers": [{ "color": "#212121" }]
   },
   {
     "elementType": "labels.icon",
-    "stylers": [{"visibility": "off"}]
+    "stylers": [{ "visibility": "off" }]
   },
   {
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#757575"}]
+    "stylers": [{ "color": "#757575" }]
   },
   {
     "elementType": "labels.text.stroke",
-    "stylers": [{"color": "#212121"}]
+    "stylers": [{ "color": "#212121" }]
   },
   {
     "featureType": "administrative",
     "elementType": "geometry",
-    "stylers": [{"color": "#757575"}]
+    "stylers": [{ "color": "#757575" }]
   },
   {
     "featureType": "administrative.country",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#9e9e9e"}]
+    "stylers": [{ "color": "#9e9e9e" }]
   },
   {
     "featureType": "administrative.land_parcel",
-    "stylers": [{"visibility": "off"}]
+    "stylers": [{ "visibility": "off" }]
   },
   {
     "featureType": "administrative.locality",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#bdbdbd"}]
+    "stylers": [{ "color": "#bdbdbd" }]
   },
   {
     "featureType": "poi",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#757575"}]
+    "stylers": [{ "color": "#757575" }]
   },
   {
     "featureType": "poi.park",
     "elementType": "geometry",
-    "stylers": [{"color": "#181818"}]
+    "stylers": [{ "color": "#181818" }]
   },
   {
     "featureType": "poi.park",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#616161"}]
+    "stylers": [{ "color": "#616161" }]
   },
   {
     "featureType": "poi.park",
     "elementType": "labels.text.stroke",
-    "stylers": [{"color": "#1b1b1b"}]
+    "stylers": [{ "color": "#1b1b1b" }]
   },
   {
     "featureType": "road",
     "elementType": "geometry.fill",
-    "stylers": [{"color": "#2c2c2c"}]
+    "stylers": [{ "color": "#2c2c2c" }]
   },
   {
     "featureType": "road",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#8a8a8a"}]
+    "stylers": [{ "color": "#8a8a8a" }]
   },
   {
     "featureType": "road.arterial",
     "elementType": "geometry",
-    "stylers": [{"color": "#373737"}]
+    "stylers": [{ "color": "#373737" }]
   },
   {
     "featureType": "road.highway",
     "elementType": "geometry",
-    "stylers": [{"color": "#3c3c3c"}]
+    "stylers": [{ "color": "#3c3c3c" }]
   },
   {
     "featureType": "road.highway.controlled_access",
     "elementType": "geometry",
-    "stylers": [{"color": "#4e4e4e"}]
+    "stylers": [{ "color": "#4e4e4e" }]
   },
   {
     "featureType": "road.local",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#616161"}]
+    "stylers": [{ "color": "#616161" }]
   },
   {
     "featureType": "transit",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#757575"}]
+    "stylers": [{ "color": "#757575" }]
   },
   {
     "featureType": "water",
     "elementType": "geometry",
-    "stylers": [{"color": "#000000"}]
+    "stylers": [{ "color": "#000000" }]
   },
   {
     "featureType": "water",
     "elementType": "labels.text.fill",
-    "stylers": [{"color": "#3d3d3d"}]
+    "stylers": [{ "color": "#3d3d3d" }]
   }
 ];
 
@@ -167,9 +167,9 @@ export default function MapScreen() {
   const [showPatrolPaths, setShowPatrolPaths] = useState(true);
   const [showHomeLocations, setShowHomeLocations] = useState(true);
   const [selectedRobot, setSelectedRobot] = useState<string | null>(null);
-  
-  const selectedRobotData = selectedRobot 
-    ? mockRobots.find(robot => robot.id === selectedRobot) 
+
+  const selectedRobotData = selectedRobot
+    ? mockRobots.find(robot => robot.id === selectedRobot)
     : null;
 
   const handleRobotPress = (robotId: string) => {
@@ -230,8 +230,8 @@ export default function MapScreen() {
               onPress={() => handleRobotPress(robot.id)}
             />
           ))}
-          
-          {showPatrolPaths && mockRobots.map(robot => 
+
+          {showPatrolPaths && mockRobots.map(robot =>
             robot.patrolPath.length > 0 && (
               <Polyline
                 key={`path-${robot.id}`}
@@ -242,7 +242,7 @@ export default function MapScreen() {
               />
             )
           )}
-          
+
           {showHomeLocations && mockRobots.map(robot => (
             <Marker
               key={`home-${robot.id}`}
@@ -253,24 +253,24 @@ export default function MapScreen() {
             />
           ))}
         </MapView>
-        
+
         <View style={styles.mapControls}>
-          <Pressable 
-            style={[styles.mapControlButton, !showPatrolPaths && styles.disabledControl]} 
+          <Pressable
+            style={[styles.mapControlButton, !showPatrolPaths && styles.disabledControl]}
             onPress={() => setShowPatrolPaths(!showPatrolPaths)}
           >
             {showPatrolPaths ? <Route color="#FFFFFF" size={20} /> : <Route color="#8E8E93" size={20} />}
           </Pressable>
-          
-          <Pressable 
-            style={[styles.mapControlButton, !showHomeLocations && styles.disabledControl]} 
+
+          <Pressable
+            style={[styles.mapControlButton, !showHomeLocations && styles.disabledControl]}
             onPress={() => setShowHomeLocations(!showHomeLocations)}
           >
             {showHomeLocations ? <HomeIcon color="#FFFFFF" size={20} /> : <HomeIcon color="#8E8E93" size={20} />}
           </Pressable>
         </View>
       </View>
-      
+
       <View style={styles.infoContainer}>
         {selectedRobotData ? (
           <Card title={selectedRobotData.name} style={styles.robotInfoCard}>
@@ -278,15 +278,15 @@ export default function MapScreen() {
               <Text style={styles.robotId}>ID: {selectedRobotData.id}</Text>
               <StatusBadge status={getStatusBadgeType(selectedRobotData.status)} />
             </View>
-            
+
             <View style={styles.locationInfo}>
               <MapPin size={16} color="#8E8E93" />
               <Text style={styles.locationText}>
-                Lat: {selectedRobotData.location.latitude.toFixed(4)}, 
+                Lat: {selectedRobotData.location.latitude.toFixed(4)},
                 Long: {selectedRobotData.location.longitude.toFixed(4)}
               </Text>
             </View>
-            
+
             <View style={styles.actionButtons}>
               <Button
                 variant="primary"

@@ -50,12 +50,12 @@ const SettingsItem: React.FC<SettingsItemProps> = ({
     <View style={styles.settingsItemIcon}>
       {icon}
     </View>
-    
+
     <View style={styles.settingsItemContent}>
       <Text style={styles.settingsItemTitle}>{title}</Text>
       {description && <Text style={styles.settingsItemDescription}>{description}</Text>}
     </View>
-    
+
     {hasToggle && (
       <Switch
         value={toggleValue}
@@ -65,7 +65,7 @@ const SettingsItem: React.FC<SettingsItemProps> = ({
         ios_backgroundColor="#3A3A3C"
       />
     )}
-    
+
     {!hasToggle && hasChevron && onPress && (
       <ChevronRight size={18} color="#8E8E93" />
     )}
@@ -107,7 +107,7 @@ export default function SettingsScreen() {
           onToggleChange={setMotionAlerts}
         />
       </SettingsSection>
-      
+
       <SettingsSection title="AI Detection Settings">
         <SettingsItem
           icon={<Shield size={22} color="#5E5CE6" />}
@@ -134,7 +134,7 @@ export default function SettingsScreen() {
           onToggleChange={setVehicleDetection}
         />
       </SettingsSection>
-      
+
       <SettingsSection title="Camera Settings">
         <SettingsItem
           icon={<Camera size={22} color="#30D158" />}
@@ -153,7 +153,7 @@ export default function SettingsScreen() {
           onToggleChange={setHighDefinition}
         />
       </SettingsSection>
-      
+
       <SettingsSection title="Security">
         <SettingsItem
           icon={<Lock size={22} color="#0A84FF" />}
@@ -175,10 +175,10 @@ export default function SettingsScreen() {
           icon={<Lock size={22} color="#0A84FF" />}
           title="Manage Access Permissions"
           description="Control who can access your robots"
-          onPress={() => {}}
+          onPress={() => { }}
         />
       </SettingsSection>
-      
+
       <SettingsSection title="Robot Behavior">
         <SettingsItem
           icon={<Wifi size={22} color="#FF9500" />}
@@ -197,7 +197,7 @@ export default function SettingsScreen() {
           onToggleChange={setLowBatteryReturn}
         />
       </SettingsSection>
-      
+
       <SettingsSection title="Data & Storage">
         <SettingsItem
           icon={<CloudUpload size={22} color="#5E5CE6" />}
@@ -211,7 +211,7 @@ export default function SettingsScreen() {
           icon={<CloudUpload size={22} color="#5E5CE6" />}
           title="Storage Management"
           description="Manage video storage and cleanup"
-          onPress={() => {}}
+          onPress={() => { }}
         />
         <SettingsItem
           icon={<CloudUpload size={22} color="#5E5CE6" />}
@@ -222,22 +222,22 @@ export default function SettingsScreen() {
           onToggleChange={setAutoUpdate}
         />
       </SettingsSection>
-      
+
       <SettingsSection title="Support">
         <SettingsItem
           icon={<HelpCircle size={22} color="#FF9500" />}
           title="Help Center"
           description="Troubleshooting and guides"
-          onPress={() => {}}
+          onPress={() => { }}
         />
         <SettingsItem
           icon={<Info size={22} color="#FF9500" />}
           title="About"
           description="Version 1.0.0"
-          onPress={() => {}}
+          onPress={() => { }}
         />
       </SettingsSection>
-      
+
       <View style={styles.footer}>
         <Text style={styles.footerText}>
           Smart Robot Video Monitoring System

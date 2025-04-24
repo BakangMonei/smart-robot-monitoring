@@ -74,12 +74,12 @@ const RobotCard: React.FC<RobotCardProps> = ({
             <Battery size={16} color={getBatteryColor()} />
             <Text style={styles.infoText}>{batteryLevel}%</Text>
           </View>
-          
+
           <View style={styles.infoItem}>
             <SignalHigh size={16} color={getSignalColor()} />
             <Text style={styles.infoText}>{signalStrength}%</Text>
           </View>
-          
+
           <View style={styles.infoItem}>
             <Thermometer size={16} color={getTemperatureColor()} />
             <Text style={styles.infoText}>{temperature}°C</Text>

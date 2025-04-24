@@ -88,17 +88,17 @@ const mockAlerts = {
 export default function AlertDetailsScreen() {
   const { id } = useLocalSearchParams();
   const router = useRouter();
-  
+
   const alertId = id as string;
   const alert = mockAlerts[alertId as keyof typeof mockAlerts];
-  
+
   if (!alert) {
     return (
       <View style={styles.notFoundContainer}>
         <AlertTriangle size={48} color="#FF453A" />
         <Text style={styles.notFoundText}>Alert not found</Text>
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onPress={() => router.back()}
           icon={<ArrowLeft size={18} color="#0A84FF" />}
         >
@@ -152,7 +152,7 @@ export default function AlertDetailsScreen() {
 
   return (
     <>
-      <Stack.Screen 
+      <Stack.Screen
         options={{
           title: 'Alert Details',
           headerShown: true,
@@ -170,15 +170,15 @@ export default function AlertDetailsScreen() {
               <ArrowLeft color="#0A84FF" size={24} />
             </Pressable>
           ),
-        }} 
+        }}
       />
-      
+
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <View style={styles.alertTypeContainer}>
             {getIconForType()}
           </View>
-          
+
           <View style={styles.headerContent}>
             <Text style={styles.title}>{alert.title}</Text>
             <View style={[styles.severityBadge, { backgroundColor: getSeverityColor() }]}>
@@ -186,15 +186,15 @@ export default function AlertDetailsScreen() {
             </View>
           </View>
         </View>
-        
+
         {alert.imageUrl && (
           <View style={styles.imageContainer}>
             <Image source={{ uri: alert.imageUrl }} style={styles.image} />
-            
+
             {alert.objectDetails && (
-              <View 
+              <View
                 style={[
-                  styles.detectionBox, 
+                  styles.detectionBox,
                   {
                     left: `${alert.objectDetails.boundingBox.x * 100}%`,
                     top: `${alert.objectDetails.boundingBox.y * 100}%`,
@@ -212,45 +212,45 @@ export default function AlertDetailsScreen() {
             )}
           </View>
         )}
-        
+
         <Card style={styles.detailsCard}>
           <Text style={styles.message}>{alert.message}</Text>
-          
+
           <View style={styles.metadataContainer}>
             <View style={styles.metadataItem}>
               <Clock size={16} color="#8E8E93" />
               <Text style={styles.metadataText}>{alert.timestamp}</Text>
             </View>
-            
+
             <View style={styles.metadataItem}>
               <MapPin size={16} color="#8E8E93" />
               <Text style={styles.metadataText}>{alert.location}</Text>
             </View>
           </View>
-          
+
           <View style={styles.divider} />
-          
+
           <View style={styles.robotInfo}>
             <Text style={styles.robotInfoLabel}>Detected by:</Text>
             <Text style={styles.robotInfoValue}>{alert.robotName} ({alert.robotId})</Text>
           </View>
-          
+
           {alert.objectDetails && (
             <>
               <View style={styles.divider} />
               <View style={styles.detectionDetails}>
                 <Text style={styles.detectionTitle}>Detection Details</Text>
-                
+
                 <View style={styles.detectionItem}>
                   <Text style={styles.detectionLabel}>Classification:</Text>
                   <Text style={styles.detectionValue}>{alert.objectDetails.classification}</Text>
                 </View>
-                
+
                 <View style={styles.detectionItem}>
                   <Text style={styles.detectionLabel}>Confidence:</Text>
                   <Text style={styles.detectionValue}>{alert.detectionConfidence?.toFixed(1)}%</Text>
                 </View>
-                
+
                 <View style={styles.detectionItem}>
                   <Text style={styles.detectionLabel}>Attributes:</Text>
                   <Text style={styles.detectionValue}>{alert.objectDetails.attributes.join(', ')}</Text>
@@ -259,7 +259,7 @@ export default function AlertDetailsScreen() {
             </>
           )}
         </Card>
-        
+
         <View style={styles.actionsContainer}>
           {alert.videoAvailable && (
             <Button
@@ -270,7 +270,7 @@ export default function AlertDetailsScreen() {
               View Video
             </Button>
           )}
-          
+
           <Button
             variant="outline"
             onPress={handleViewCamera}
@@ -278,7 +278,7 @@ export default function AlertDetailsScreen() {
           >
             Live Camera
           </Button>
-          
+
           <Button
             variant="outline"
             onPress={handleViewRobot}
@@ -287,7 +287,7 @@ export default function AlertDetailsScreen() {
             View Robot
           </Button>
         </View>
-        
+
         <View style={styles.footer}>
           <Button
             variant="destructive"
@@ -295,7 +295,7 @@ export default function AlertDetailsScreen() {
           >
             Dismiss Alert
           </Button>
-          
+
           <Button
             variant="ghost"
             size="sm"

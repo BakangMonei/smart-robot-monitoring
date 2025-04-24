@@ -41,7 +41,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
   return (
     <Card title={`Control Panel - ${robotName}`}>
       <Text style={styles.robotId}>Robot ID: {robotId}</Text>
-      
+
       <View style={styles.controlsContainer}>
         <View style={styles.directionalControls}>
           {/* Top button */}
@@ -57,7 +57,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
               <ArrowUp size={24} color={activeDirection === 'up' ? '#000000' : '#FFFFFF'} />
             </Pressable>
           </View>
-          
+
           {/* Middle row */}
           <View style={styles.middleRow}>
             <Pressable
@@ -70,7 +70,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
             >
               <ArrowLeft size={24} color={activeDirection === 'left' ? '#000000' : '#FFFFFF'} />
             </Pressable>
-            
+
             <View style={styles.centerButton}>
               <Pressable
                 style={[
@@ -83,7 +83,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
                 <Home size={24} color={activeDirection === 'home' ? '#000000' : '#FFFFFF'} />
               </Pressable>
             </View>
-            
+
             <Pressable
               style={[
                 styles.directionButton,
@@ -95,7 +95,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
               <ArrowRight size={24} color={activeDirection === 'right' ? '#000000' : '#FFFFFF'} />
             </Pressable>
           </View>
-          
+
           {/* Bottom row */}
           <View style={styles.bottomRow}>
             <Pressable
@@ -120,7 +120,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
           >
             {isPatrolling ? 'Stop Patrol' : 'Start Patrol'}
           </Button>
-          
+
           <Button
             variant="outline"
             icon={<Target size={18} color="#0A84FF" />}
@@ -130,7 +130,7 @@ const RobotControlPanel: React.FC<RobotControlPanelProps> = ({
           </Button>
         </View>
       </View>
-      
+
       <Text style={styles.helpText}>
         Press and hold direction buttons to control robot movement
       </Text>

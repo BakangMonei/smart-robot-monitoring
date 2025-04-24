@@ -32,12 +32,12 @@ export default function Dashboard() {
   };
 
   return (
-    <ScrollView 
-      style={styles.container} 
+    <ScrollView
+      style={styles.container}
       refreshControl={
-        <RefreshControl 
-          refreshing={refreshing} 
-          onRefresh={onRefresh} 
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
           tintColor="#FFFFFF"
         />
       }
@@ -48,9 +48,9 @@ export default function Dashboard() {
           type="info"
           title="System Update Available"
           message="A new firmware update (v2.1.3) is available for your robots."
-          onClose={() => {}}
+          onClose={() => { }}
         />
-        
+
         <StatisticsCard
           title="Security Overview"
           stats={[
@@ -67,7 +67,7 @@ export default function Dashboard() {
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Active Robots</Text>
-        
+
         <RobotCard
           id="RB-2023-001"
           name="Sentinel Alpha"
@@ -82,7 +82,7 @@ export default function Dashboard() {
           onViewLiveStream={() => handleViewLiveStream('RB-2023-001')}
           onViewDetails={() => handleViewRobotDetails('RB-2023-001')}
         />
-        
+
         <RobotCard
           id="RB-2023-002"
           name="Guardian Beta"
@@ -98,7 +98,7 @@ export default function Dashboard() {
           onViewDetails={() => handleViewRobotDetails('RB-2023-002')}
         />
       </View>
-      
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Featured Camera</Text>
         <CameraView
@@ -118,7 +118,7 @@ export default function Dashboard() {
           ]}
         />
       </View>
-      
+
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Recent Alerts</Text>
         <AlertItem
@@ -133,7 +133,7 @@ export default function Dashboard() {
           imageUrl="https://images.pexels.com/photos/3205568/pexels-photo-3205568.jpeg"
           onPress={() => handleAlertPress('alert-001')}
         />
-        
+
         <AlertItem
           id="alert-002"
           type="motion"
@@ -145,7 +145,7 @@ export default function Dashboard() {
           severity="medium"
           onPress={() => handleAlertPress('alert-002')}
         />
-        
+
         <AlertItem
           id="alert-003"
           type="system"

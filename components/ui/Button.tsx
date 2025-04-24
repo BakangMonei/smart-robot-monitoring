@@ -128,9 +128,9 @@ const Button = ({
   const buttonContent = (
     <>
       {loading ? (
-        <ActivityIndicator 
-          color={variant === 'outline' || variant === 'ghost' || variant === 'link' ? getVariantColor() : '#fff'} 
-          size="small" 
+        <ActivityIndicator
+          color={variant === 'outline' || variant === 'ghost' || variant === 'link' ? getVariantColor() : '#fff'}
+          size="small"
         />
       ) : (
         <View style={styles.contentContainer}>

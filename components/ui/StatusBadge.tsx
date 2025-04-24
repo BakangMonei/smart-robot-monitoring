@@ -9,10 +9,10 @@ interface StatusBadgeProps {
   showText?: boolean;
 }
 
-const StatusBadge: React.FC<StatusBadgeProps> = ({ 
-  status, 
+const StatusBadge: React.FC<StatusBadgeProps> = ({
+  status,
   size = 'md',
-  showText = true 
+  showText = true
 }) => {
   const getStatusColor = () => {
     switch (status) {
@@ -80,11 +80,11 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
 
   return (
     <View style={styles.container}>
-      <View 
+      <View
         style={[
-          styles.dot, 
+          styles.dot,
           { backgroundColor: getStatusColor(), width: getDotSize(), height: getDotSize() }
-        ]} 
+        ]}
       />
       {showText && (
         <Text style={[styles.text, { fontSize: getTextSize(), color: getStatusColor() }]}>

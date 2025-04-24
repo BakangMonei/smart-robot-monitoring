@@ -69,7 +69,7 @@ const AlertItem: React.FC<AlertItemProps> = ({
       <View style={styles.iconContainer}>
         {getIconForType()}
       </View>
-      
+
       <View style={styles.content}>
         <View style={styles.header}>
           <Text style={styles.title}>{title}</Text>
@@ -77,9 +77,9 @@ const AlertItem: React.FC<AlertItemProps> = ({
             <Text style={styles.severityText}>{severity}</Text>
           </View>
         </View>
-        
+
         <Text style={styles.message} numberOfLines={2}>{message}</Text>
-        
+
         <View style={styles.footer}>
           <Text style={styles.robotName}>{robotName}</Text>
           <View style={styles.timestampContainer}>
@@ -88,7 +88,7 @@ const AlertItem: React.FC<AlertItemProps> = ({
           </View>
         </View>
       </View>
-      
+
       {imageUrl && (
         <View style={styles.imageContainer}>
           <Image source={{ uri: imageUrl }} style={styles.image} />

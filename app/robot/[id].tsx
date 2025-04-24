@@ -73,17 +73,17 @@ export default function RobotDetailsScreen() {
   const { id } = useLocalSearchParams();
   const router = useRouter();
   const [showAlert, setShowAlert] = useState(true);
-  
+
   const robotId = id as string;
   const robot = mockRobotData[robotId as keyof typeof mockRobotData];
-  
+
   if (!robot) {
     return (
       <View style={styles.notFoundContainer}>
         <AlertTriangle size={48} color="#FF453A" />
         <Text style={styles.notFoundText}>Robot not found</Text>
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           onPress={() => router.back()}
           icon={<ArrowLeft size={18} color="#0A84FF" />}
         >
@@ -108,7 +108,7 @@ export default function RobotDetailsScreen() {
 
   return (
     <>
-      <Stack.Screen 
+      <Stack.Screen
         options={{
           title: robot.name,
           headerShown: true,
@@ -131,9 +131,9 @@ export default function RobotDetailsScreen() {
               <Settings color="#FFFFFF" size={24} />
             </Pressable>
           ),
-        }} 
+        }}
       />
-      
+
       <ScrollView style={styles.container}>
         {showAlert && robot.maintenanceStatus !== 'Good' && (
           <AlertBanner
@@ -143,7 +143,7 @@ export default function RobotDetailsScreen() {
             onClose={() => setShowAlert(false)}
           />
         )}
-        
+
         <CameraView
           robotId={robot.id}
           robotName={robot.name}
@@ -160,7 +160,7 @@ export default function RobotDetailsScreen() {
             },
           ]}
         />
-        
+
         <View style={styles.section}>
           <RobotControlPanel
             robotId={robot.id}
@@ -174,7 +174,7 @@ export default function RobotDetailsScreen() {
             onTogglePatrol={handleTogglePatrol}
           />
         </View>
-        
+
         <View style={styles.section}>
           <StatisticsCard
             title="Robot Statistics"
@@ -189,7 +189,7 @@ export default function RobotDetailsScreen() {
             style={styles.statsCard}
           />
         </View>
-        
+
         <View style={styles.section}>
           <StatisticsCard
             title="Detection Statistics"
@@ -202,7 +202,7 @@ export default function RobotDetailsScreen() {
             style={styles.statsCard}
           />
         </View>
-        
+
         <View style={styles.section}>
           <Card title="Robot Information" style={styles.infoCard}>
             <View style={styles.infoRow}>
@@ -228,7 +228,7 @@ export default function RobotDetailsScreen() {
             <View style={styles.infoRow}>
               <Text style={styles.infoLabel}>Maintenance</Text>
               <Text style={[
-                styles.infoValue, 
+                styles.infoValue,
                 { color: robot.maintenanceStatus === 'Good' ? '#30D158' : '#FF9500' }
               ]}>
                 {robot.maintenanceStatus}
@@ -236,7 +236,7 @@ export default function RobotDetailsScreen() {
             </View>
           </Card>
         </View>
-        
+
         <View style={styles.actionButtonsContainer}>
           <Button
             variant="outline"

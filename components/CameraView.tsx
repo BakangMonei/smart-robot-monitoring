@@ -35,7 +35,7 @@ const CameraView: React.FC<CameraViewProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  
+
   // In a real app, we would use the actual camera permission
   const [permission, requestPermission] = useState({ granted: true });
 
@@ -56,7 +56,7 @@ const CameraView: React.FC<CameraViewProps> = ({
         />
       );
     }
-    
+
     return (
       <ExpoCameraView
         style={styles.cameraFeed}
@@ -69,7 +69,7 @@ const CameraView: React.FC<CameraViewProps> = ({
   // Render detection boxes over identified objects
   const renderDetectionBoxes = () => {
     if (!isImageRecognitionActive || detectedObjects.length === 0) return null;
-    
+
     return detectedObjects.map(obj => (
       <View
         key={obj.id}
@@ -128,14 +128,14 @@ const CameraView: React.FC<CameraViewProps> = ({
       <View style={styles.cameraContainer}>
         {renderCameraFeed()}
         {renderDetectionBoxes()}
-        
+
         {isLoading && (
           <View style={styles.loadingOverlay}>
             <ActivityIndicator size="large" color="#FFFFFF" />
             <Text style={styles.loadingText}>Connecting to camera...</Text>
           </View>
         )}
-        
+
         {hasError && (
           <View style={styles.errorOverlay}>
             <AlertTriangle size={40} color="#FF453A" />
@@ -145,7 +145,7 @@ const CameraView: React.FC<CameraViewProps> = ({
             </Button>
           </View>
         )}
-        
+
         {!isLoading && !hasError && isPaused && (
           <View style={styles.pausedOverlay}>
             <Pause size={40} color="#FFFFFF" />

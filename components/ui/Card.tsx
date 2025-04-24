@@ -21,7 +21,7 @@ const Card = ({
   onPress,
 }: CardProps) => {
   const CardContainer = onPress ? Pressable : View;
-  
+
   const renderContent = () => (
     <>
       {(title || subtitle) && (
@@ -50,7 +50,7 @@ const Card = ({
   return (
     <CardContainer
       style={[
-        styles.card, 
+        styles.card,
         glass && styles.glassBackground,
         style
       ]}

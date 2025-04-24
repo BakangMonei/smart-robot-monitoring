@@ -100,7 +100,7 @@ export default function AlertsScreen() {
   const [typeFilter, setTypeFilter] = useState<FilterType>('all');
   const [severityFilter, setSeverityFilter] = useState<SeverityType>('all');
   const [showFilters, setShowFilters] = useState(false);
-  
+
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -151,7 +151,7 @@ export default function AlertsScreen() {
             <Filter size={18} color="#0A84FF" />
             <Text style={styles.filterToggleText}>Filters</Text>
           </Pressable>
-          
+
           {(typeFilter !== 'all' || severityFilter !== 'all') && (
             <Pressable
               style={({ pressed }) => [
@@ -165,7 +165,7 @@ export default function AlertsScreen() {
             </Pressable>
           )}
         </View>
-        
+
         {showFilters && (
           <View style={styles.filtersContainer}>
             <View>
@@ -209,7 +209,7 @@ export default function AlertsScreen() {
                 </Pressable>
               </ScrollView>
             </View>
-            
+
             <View style={styles.severityContainer}>
               <Text style={styles.filterSectionTitle}>Severity</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterScrollView}>
@@ -256,7 +256,7 @@ export default function AlertsScreen() {
         <Text style={styles.resultsText}>
           {filteredAlerts.length} {filteredAlerts.length === 1 ? 'alert' : 'alerts'} found
         </Text>
-        
+
         {filteredAlerts.length === 0 ? (
           <View style={styles.noResults}>
             <Text style={styles.noResultsText}>No alerts match your filters</Text>
